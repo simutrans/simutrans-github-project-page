@@ -18,7 +18,7 @@ git svn rebase
 
 rev=`git svn info |grep Revision|cut -b 11-`
 now=`date --rfc-3339=seconds -u`
-gitmsg="ads pak128 developmetn snapshot r$rev"
+gitmsg="\"ads pak128 development snapshot r$rev\""
 
 
 ./pakmak.py

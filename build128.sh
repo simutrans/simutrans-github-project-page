@@ -7,7 +7,6 @@
 gitdir=~/simutrans.dev/pak128/
 buildir=simutrans/
 build=pak128
-pakz=$build.r$rev.7z
 
 pagedir=~/simutrans.dev/page/pak128builds/
 
@@ -17,8 +16,11 @@ cd $gitdir
 git svn rebase
 
 rev=`git svn info |grep Revision|cut -b 11-`
+
+pakz=$build.r$rev.7z
+
 now=`date --rfc-3339=seconds -u`
-gitmsg="\"ads pak128 development snapshot r$rev\""
+gitmsg="ads pak128 development snapshot r$rev"
 
 
 ./pakmak.py
@@ -38,5 +40,5 @@ mv temp index.html
 
 
 git add index.html $pakz
-git commit -m $gitmsg
+git commit -m "$gitmsg"
 git push
